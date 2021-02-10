@@ -33,7 +33,7 @@
    }else if( $score >= 70 && $score < 80 ){
         echo "Your grade is : B";
    }else if( $score >= 60 && $score < 70 ){
-        echo "Your grade is : D";
+        echo "Your grade is : C";
    }else if( $score >= 50 && $score < 60 ){
         echo "Your grade is : D";
    }else{
