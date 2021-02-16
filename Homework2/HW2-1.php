@@ -28,54 +28,41 @@
 </form>
 
 <?php
-    $text= [];
-    if(isset($_POST['submit'])){
-        $temp = $_POST['str'];
-        
-        for($i =0 ; $i<strlen($temp);$i++){
-           $text[] = $temp[$i];
-        }
-    
-  
-    function selection_sort($data){
-        for($i = 0 ; $i < count($data);$i++){
-            $min = $i;
-            for($j= $i+1; $j<count($data); $j++){
-                if($data[$j]<$data[$min]){
-                    $min = $j;
+    function find_char($text)
+    {
+        for ($i = 0; $i < strlen($text); $i++) {
+            $check = true;
+            $char = substr($text, $i, 1);
+            for ($r = $i - 1; $r > -1; $r--) {
+                if ($char == substr($text, $r, 1)) {
+                    $check = false;
                 }
             }
-            $data = swap($data,$i,$min);
+            if ($check) {
+                if($char == " ")$char = 'space';
+                echo ''.$char . ': Ascii = ' . ord($char) . ' <br> ';
+            }
+            
         }
-        return $data;
     }
-
-    function swap($data,$i,$min){
-        $temp = $data[$min];
-        $data[$min] = $data[$i];
-        $data[$i] = $temp;
-        return $data;
+    function show_form()
+    {
+        echo "<center><h1> HW2-2:Find Ascii</h1>";
+        echo '<form method="get" action="FineWord.php">';
+        echo 'Your Text : <input type="text" name="text" size="10" value=""/><br><br>';
+        echo '<input type="submit" value=" submit " /><input type="reset" value=" Clear " />';
+        echo '</form></center>';
     }
-    $result = implode(selection_sort($text));
-          ?>
-
-          <h3 align=center>Count Char in Sentence</h3>
-          <center>
-          <?php
-          $output = "";
-          for($i = 0; $i < strlen($result);$i++){
-              for($j = $i+1 ; $j < strlen($result);$j++){
-                  if($result[$i] == $result[$j]){
-                      $i++;
-                  }
-              }
-              $output .= $result[$i] . ' = ' . substr_count($result,$result[$i]) . ' , ';
-          }
-          echo substr($output,0,-3);
-          ?>
-          </center>
-          <?php
-          }
+    if (isset($_GET['text'])) {
+        $text = $_GET['text'];
+        show_form();
+        echo '<hr>';
+        echo '<center><h3> Count Char in Sentence</h3><br><h4>';
+        find_char($text);
+        echo '</h4></center>';
+    } else {
+        show_form();
+    }
     ?>
 </body>
 </html>
