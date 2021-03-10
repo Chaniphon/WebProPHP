@@ -38,9 +38,7 @@
                 return($num2);
             }
             else;
-
     }
-   
     
 ?>
 </body>

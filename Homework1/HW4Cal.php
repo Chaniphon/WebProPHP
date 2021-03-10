@@ -24,11 +24,6 @@ $grade5 = $_POST['grade5'];
 $gpa = 0;
 $allcredits = $credit1 + $credit2 +$credit3 + $credit4 +$credit5 ;
 
-
-
-
-
-
 echo "<table align='center' width='50%' border='1'>";
 echo "<tr><td colspan='6' align='center'><b><br>Grade Period Average (GPA)</b><br><br></td></tr>";
 echo "<tr><td>Subject 1 :</td><td> <i> $sub1 </i> </td>";

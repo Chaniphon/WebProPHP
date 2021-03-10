@@ -6,7 +6,7 @@
 <table border="1" align="center" width="500">
     <tr>
         <td colspan="2" align="center"><big> Arithmatic Operator </big></td>
-    <tr>
+    </tr>
     <tr>
         <td>Enter Number 1 : </td>
         <td><input type="text" name="number1" size="15" value=""/> </td>
